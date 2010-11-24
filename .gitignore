@@ -1,5 +1,6 @@
 ## MAC OS
 .DS_Store
+.project
 
 ## TEXTMATE
 *.tmproj
@@ -22,3 +23,4 @@ pkg
 doc/
 *.gem
 .bundle
+log
