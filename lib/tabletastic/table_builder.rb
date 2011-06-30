@@ -103,19 +103,21 @@ module Tabletastic
 
     # Dynamically builds links for the action
     def action_link(action, prefix)
-      html_class = "actions #{action.to_s}_link"
+      #html_class = "actions #{action.to_s}_link"
+      html_class = "actions #{Tabletastic.default_actions_link_class[action.to_sym]}"
       block = lambda do |resource|
         compound_resource = [prefix, resource].compact
         compound_resource.flatten! if prefix.kind_of?(Array)
         case action
         when :show
-          @template.link_to(link_title(action), compound_resource)
+          @template.link_to(link_title(action), compound_resource, :class => html_class)
         when :destroy
           @template.link_to(link_title(action), compound_resource,
-                            :method => :delete, :confirm => confirmation_message)
+                            :method => :delete, :confirm => confirmation_message, :class => html_class)
         else # edit, other resource GET actions
           @template.link_to(link_title(action),
-                            @template.polymorphic_path(compound_resource, :action => action))
+                            @template.polymorphic_path(compound_resource, :action => action),
+                            :class => html_class)
         end
       end
       self.cell(action, :heading => "", :cell_html => {:class => html_class}, &block)
