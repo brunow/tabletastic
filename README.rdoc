@@ -82,8 +82,16 @@ In your Rails project, Gemfile:
 Or, for if you're behind the times, as a plugin:
   script/plugin install git://github.com/jgdavey/tabletastic.git
 
+== Initializer
+
 Optionally, you can create an initializer at config/initializers/tabletastic.rb with the following:
-  Tabletastic.default_table_block = lambda {|table| table.data :actions => :all }
+
+Tabletastic.default_table_block = lambda {|table| table.data :actions => :all}
+
+You can change the css class name from the action link, default are edit_link, destroy_link, show_link.
+Tabletastic.default_actions_link_class = {:edit => 'edit', :destroy => 'delete', :show => 'show '}
+
+Tabletastic.default_table_html = {:class => 'data-list', :width => '100%'}
 
 == Usage
 
