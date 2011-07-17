@@ -1,5 +1,6 @@
 ## MAC OS
 .DS_Store
+.project
 
 ## TEXTMATE
 *.tmproj
@@ -17,6 +18,7 @@ tmtags
 coverage
 rdoc
 pkg
+tabletastic/
 
 ## PROJECT::SPECIFIC
 doc/
