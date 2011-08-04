@@ -158,7 +158,7 @@ module Tabletastic
 
     def confirmation_message
       I18n.t(
-        :are_you_sure?,
+        :confirmation,
         :scope => [:tabletastic, :models, klass.try(:model_name).try(:singular)].compact,
         :default => I18n.t("tabletastic.actions.confirmation", :default => @@destroy_confirm_message)
       )
